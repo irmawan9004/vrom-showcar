@@ -22,10 +22,16 @@
         columns: [{
             data: 'id',
             name: 'id',
+          }, 
+          {
+            data: 'thumbnail',
+            name: 'thumbnail',
+            orderable : false,
+            searchable : false, 
           },
           {
             data: 'name',
-            name: 'name'
+            name: 'name',
           },
           {
             data: 'slug',
@@ -65,6 +71,7 @@
             <thead>
               <tr>
                 <th style="max-width: 1%">ID</th>
+                <th>Thumbnail</th>
                 <th>Nama</th>
                 <th>Slug</th>
                 <th>Type</th>

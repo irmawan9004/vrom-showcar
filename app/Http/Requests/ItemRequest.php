@@ -24,6 +24,13 @@ class ItemRequest extends FormRequest
     {
         return [
             "name" => "required|string|max:255",
+            "type_id" => "required|integer",
+            "brand_id" => "required|integer",
+            "photos" => "nullable|array",
+            "photos.*" => "nullable|image|mimes:jpg,jpeg,png,webp|max:2000",
+            "price" => "nullable|integer",
+            "star" => "nullable|numeric",
+            "review" => "nullable|integer",
         ];
     }
 }
