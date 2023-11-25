@@ -96,9 +96,23 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ItemRequest $request, Item $item)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name']) . '-' . Str::lower(Str::random(5));
+        if($request->hasFile('photos')){
+            $photos = [];
+            foreach ($request->file('photos') as $photo){
+                $photo_path = $photo->store('assets/item', 'public');
+                array_push($photos, $photo_path);
+            }
+            $data['photos'] = json_encode($photos);
+        }else {
+            $data['photos'] = $item->photos;
+        }
+        $item->update($data);
+
+        return redirect()->route('admin.items.index');
     }
 
     /**
