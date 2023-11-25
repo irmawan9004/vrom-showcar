@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\BrandController as AdminBrandController;
+use App\Http\Controllers\Admin\TypeController as AdminTypeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome')->name('welcome');
-});
+    return view('welcome');
+})->name('first.index');
 
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
@@ -27,5 +28,6 @@ Route::prefix('admin')->name('admin.')->middleware([
     'is_admin'
 ])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('brands', AdminDashboardController::class);
+    Route::resource('brands', AdminBrandController::class);
+    Route::resource('types', AdminTypeController::class);
 });
