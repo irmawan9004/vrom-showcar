@@ -21,6 +21,9 @@
                     <x-nav-link href="{{ route('admin.types.index') }}" :active="request()->routeIs('admin.types.index')">
                         {{ __('Types') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.items.index') }}" :active="request()->routeIs('admin.items.index')">
+                        {{ __('Items') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -148,11 +151,14 @@
             <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-                   <x-responsive-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.index')">
+            <x-responsive-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.index')">
                 {{ __('Brand') }}
             </x-responsive-nav-link>
-                   <x-responsive-nav-link href="{{ route('admin.types.index') }}" :active="request()->routeIs('admin.types.index')">
+            <x-responsive-nav-link href="{{ route('admin.types.index') }}" :active="request()->routeIs('admin.types.index')">
                 {{ __('Types') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.items.index') }}" :active="request()->routeIs('admin.items.index')">
+                {{ __('Items') }}
             </x-responsive-nav-link>
         </div>
 
@@ -176,7 +182,6 @@
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                         {{ __('API Tokens') }}
