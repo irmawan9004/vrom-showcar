@@ -67,24 +67,28 @@ class BookingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Booking $booking)
     {
-        //
+        return view('admin.bookings.edit', compact('booking')); 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BookingRequest $request, Booking $booking)
     {
-        //
+        $data = $request->all();
+        $booking->update($data);
+
+        return redirect()->route('admin.bookings.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+        return redirect()->route('admin.bookings.index');
     }
 }

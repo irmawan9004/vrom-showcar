@@ -24,12 +24,36 @@
             name: 'id',
           },
           {
-            data: 'name',
-            name: 'name'
+            data: 'user.name',
+            name: 'user.name'
           },
           {
-            data: 'slug',
-            name: 'slug'
+            data: 'item.brand.name',
+            name: 'item.brand.name'
+          },
+            {
+            data: 'item.name',
+            name: 'item.name'
+          },
+            {
+            data: 'start_date',
+            name: 'start_date'
+          },
+            {
+            data: 'end_date',
+            name: 'end_date'
+          },
+            {
+            data: 'status',
+            name: 'status'
+          },
+            {
+            data: 'payment_status',
+            name: 'payment_status'
+          },
+            {
+            data: 'total_price',
+            name: 'total_price'
           },
           {
             data: 'action',
@@ -45,20 +69,20 @@
 
   <div class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <a href="{{ route('admin.brands.create') }}"
-           class="px-4 py-2 font-bold text-white bg-green-500 rounded shadow-lg hover:bg-green-700">
-          + Buat Brand
-        </a>
-      </div>
       <div class="overflow-hidden shadow sm:rounded-md">
         <div class="px-4 py-5 bg-white sm:p-6">
           <table id="dataTable">
             <thead>
               <tr>
                 <th style="max-width: 1%">ID</th>
-                <th>Nama</th>
-                <th>Slug</th>
+                <th>User</th>
+                <th>Brand</th>
+                <th>Item</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status Booking</th>
+                <th>Status Payment</th>
+                <th>Total Price</th>
                 <th style="max-width: 1%">Aksi</th>
               </tr>
             </thead>
