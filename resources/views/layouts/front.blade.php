@@ -19,8 +19,8 @@
           integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
   <!-- Scripts -->
-  @vite(['resources/css/front.css'])
-
+  @vite(['resources/css/front.css', 'resources/js/app.js'])
+ 
   <!-- Styles -->
   @livewireStyles
 </head>
