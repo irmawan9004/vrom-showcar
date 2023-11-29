@@ -5,7 +5,11 @@ use App\Http\Controllers\Admin\BrandController as AdminBrandController;
 use App\Http\Controllers\Admin\TypeController as AdminTypeController;
 use App\Http\Controllers\Admin\ItemController as AdminItemController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+
+//Front
 use App\Http\Controllers\Front\LandingController as FrontLandingController;
+use App\Http\Controllers\Front\DetailController as FrontDetailController;
+use App\Http\Controllers\Front\CheckoutController as FrontCheckoutController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +26,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::name('front.')->group(function () {
     Route::get('/', [FrontLandingController::class, 'index'])->name('index');
+    Route::get('/detail/{slug}', [FrontDetailController::class, 'index'])->name('detail');
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/checkout/{slug}', [FrontCheckoutController::class, 'index'])->name('checkout');
+        Route::post('/checkout/{slug}', [FrontCheckoutController::class, 'store'])->name('checkout.store');
+    });
 });
 
 Route::prefix('admin')->name('admin.')->middleware([
